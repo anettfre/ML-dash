@@ -16,7 +16,7 @@ app = dash.Dash(__name__, suppress_callback_exceptions=True,external_stylesheets
 server = app.server
 
 a = dbc.NavbarSimple(
-    brand="Hei",
+    brand="ML-dash",
     brand_href="#",
     color="primary",
     dark=True,

@@ -14,6 +14,10 @@ a=html.Div()
 def create_layout(app):
     return html.Div([
         html.Div(a),
+        html.P(id="instructions",
+                children=["Upload a image you want to analyse ", html.Br(),
+                        "Either by draging or selecting it ", html.Br(),
+                        "It will show the stats of the analysis. ",html.Br()]),
         html.Div([
             dcc.Upload(
                 id='upload-image',
