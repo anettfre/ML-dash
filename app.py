@@ -1,4 +1,6 @@
 import os
+from PIL import Image
+from io import BytesIO
 import dash
 import dash_table
 import dash_core_components as dcc
@@ -6,6 +8,9 @@ import dash_html_components as html
 import plotly.graph_objs as go
 from dash.dependencies import Input, Output, State
 import dash_bootstrap_components as dbc
+from backend.keras_predictor import pred
+import base64
+
 
 
 from sider import (
@@ -52,8 +57,14 @@ def update_output(list_of_contents):
     [Input("upload-image", "contents")]
 )
 def bilde_til_fil(base_64_bilde):
-    # print(base_64_bilde)
-    return base_64_bilde
+    if base_64_bilde is None:
+        return 
+    print(base_64_bilde)
+    decoded = base64.b64decode(base_64_bilde)
+    print(decoded)
+    
+    predict_img = pred(decoded  )
+    return predict_img
 
 
 if __name__ == '__main__':
