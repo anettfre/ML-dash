@@ -1,3 +1,4 @@
 dash
 dash_core_components
 keras
+tensorflow
