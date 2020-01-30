@@ -60,10 +60,15 @@ def bilde_til_fil(base_64_bilde):
     if base_64_bilde is None:
         return 
     print(base_64_bilde)
-    decoded = base64.b64decode(base_64_bilde)
-    print(decoded)
+    base_64_bilde = base_64_bilde.split(',')[-1]
+    print(base_64_bilde)
     
-    predict_img = pred(decoded  )
+    with open('imgdmp.dat', 'w') as outfile:
+        outfile.write(base_64_bilde)
+    decoded = base64.b64decode(base_64_bilde)
+    with open('tmpimg.jpg', 'wb') as outfile:
+        outfile.write(decoded)
+    predict_img = pred('tmpimg.jpg')
     return predict_img
 
 
