@@ -20,7 +20,8 @@ def pred(img):
     print(time.time()-t)
     # convert predictions to readable results
     print('Predicted:', decode_predictions(preds, top=3)[0])
-    return preds
+    output = decode_predictions(preds, top=3)[0]
+    return str(output)
 
 if __name__=='__main__':
     test_img = "/home/anette/Documents/ML-dash/backend/cat.jpg"
