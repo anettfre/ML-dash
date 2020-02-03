@@ -8,16 +8,17 @@ from dash.dependencies import Input, Output, State
 import dash_bootstrap_components as dbc
 
 
-a=html.Div()
+a = html.Div()
 
 
 def create_layout(app):
     return html.Div([
         html.Div(a),
         html.P(id="instructions",
-                children=["Upload a image you want to analyse ", html.Br(),
-                        "Either by draging or selecting it ", html.Br(),
-                        "It will show the stats of the analysis. ",html.Br()]),
+               children=["Upload a image you want to analyse ", html.Br(),
+                         "Either by draging or selecting it ", html.Br(),
+                         "It will show the stats of the analysis. ", html.Br()],
+               className="pretty_container"),
         html.Div([
             dcc.Upload(
                 id='upload-image',
@@ -26,9 +27,9 @@ def create_layout(app):
                     html.A('Select Files')
                 ]),
                 style={
-                    'width': '100%',
+                    'width': '1000px',
                     'height': '60px',
-                    'lineHeight': '60px',
+                    'lineHeight': 'wrap',
                     'borderWidth': '1px',
                     'borderStyle': 'solid',
                     'borderRadius': '5px',
@@ -42,10 +43,19 @@ def create_layout(app):
             html.Div(id='output-image-upload',
                      style={
                          "display": "flex",
+                         'width': '1000px',
+                         'height': '600px',
                          'borderWidth': '1px',
                          'borderStyle': 'solid',
                          "justify-content": "center"}),
-            html.P(id="tmp", style={"whiteSpace": "pre-line"})],
-            style={"display": "flex", "flex-direction": "column"},
-            className="six columns")
-    ])
+            html.P(id="tmp",
+                   style={"whiteSpace": "pre-line"},
+                   className="pretty_container")],
+            style={"display": "flex",
+                   "flex-direction": "column",
+                   "align-items": "center"},
+            className="pretty_container three columns")
+    ],
+        id="mainContainer",
+        style={"display": "flex", "flex-direction": "column"},
+    )
