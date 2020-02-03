@@ -23,7 +23,7 @@ def pred(img):
     output = decode_predictions(preds, top=3)[0]
     fmtans = ""
     for o in output:
-        fmtans += f"{o[1]}: {o[2]*100:.2f}"
+        fmtans += f"{o[1]}: {o[2]*100:.2f}\n"
     return fmtans
 
 if __name__=='__main__':
