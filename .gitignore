@@ -133,3 +133,5 @@ dmypy.json
 .history
 
 # End of https://www.gitignore.io/api/linux,python,visualstudiocode
+*.dat
+*.swp
