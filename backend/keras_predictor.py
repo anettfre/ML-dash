@@ -21,7 +21,10 @@ def pred(img):
     # convert predictions to readable results
     print('Predicted:', decode_predictions(preds, top=3)[0])
     output = decode_predictions(preds, top=3)[0]
-    return str(output)
+    fmtans = ""
+    for o in output:
+        fmtans += f"{o[1]}: {o[2]*100:.2f}"
+    return fmtans
 
 if __name__=='__main__':
     test_img = "/home/anette/Documents/ML-dash/backend/cat.jpg"

@@ -45,7 +45,7 @@ def create_layout(app):
                          'borderWidth': '1px',
                          'borderStyle': 'solid',
                          "justify-content": "center"}),
-            html.P(id="tmp")],
+            html.P(id="tmp", style={"whiteSpace": "pre-line"})],
             style={"display": "flex", "flex-direction": "column"},
             className="six columns")
     ])
